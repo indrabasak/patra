@@ -1,0 +1,54 @@
+<html lang='en'>
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+
+    <title>Patra</title>
+
+    <link href='css/reset.css' rel='stylesheet' type='text/css'>
+    <link href='css/patra.css' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet'
+          type='text/css'>
+    <link href='css/bootstrap-3.3.7.min.css' rel='stylesheet' type='text/css'>
+
+    <link href='css/metricsgraphics.css' rel='stylesheet' type='text/css'>
+    <link href='css/metricsviewer.css' rel='stylesheet' type='text/css'>
+    <link href='css/default/style.css' rel='stylesheet' type='text/css'/>
+
+    <script src='js/jquery-1.11.3.min.js'></script>
+    <script src="js/bootstrap-3.3.7.min.js"></script>
+    <script src="js/d3.v4.min.js"></script>
+    <script src='js/metricsgraphics.min.js'></script>
+    <script src='js/metricsviewer.min.js'></script>
+    <script src="js/jstree.min.js"></script>
+
+    <script>
+        $(function () {
+            patra.init('http://localhost:8080/metrics/metrics');
+        });
+    </script>
+</head>
+
+<body>
+<header>
+    <nav>
+        <section>
+            <div class='nav-inner'>
+                <ul class='docs'>
+                    <li><a href='#' id='goto-patra-tree' class='viewer active'>Overview</a></li>
+                    <li><a href='#' id='goto-patra-jvm' class='viewer'>JVM</a></li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+</header>
+
+<div id="trunk" class="content">
+</div>
+<footer>
+</footer>
+<script src='js/patra.js'></script>
+</body>
+
+</html>
