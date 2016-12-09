@@ -1,0 +1,46 @@
+{
+  "name": "patra",
+  "version": "1.0.0",
+  "description": "Patra is a collection of HTML, JavaScript, and CSS assets for viewing Dropwizard (Codehale/Yammer) metrics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indrabasak/patra.git"
+  },
+  "keywords": [
+    "patra",
+    "Dropwizard",
+    "metrics",
+    "codehale",
+    "yammer"
+  ],
+  "author": "Indra Basak",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/indrabasak/patra/issues"
+  },
+  "homepage": "https://github.com/indrabasak/patra#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-closure-compiler": "^0.4.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-header": "^1.8.8",
+    "gulp-jquery": "^1.1.2",
+    "gulp-jsdoc": "^0.1.5",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-testem": "0.0.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-umd": "^0.2.0",
+    "jquery": "^1.11.3",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "metrics-graphics": "^2.10.1",
+    "run-sequence": "^1.2.2"
+  }
+}
