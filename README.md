@@ -11,7 +11,7 @@ Patra is a collection of HTML, JavaScript, and CSS files that dynamically genera
 Download the HTML, JavaScript and CSS files from the [dist](dist) directory. 
 
 To use Patra, take a look at the [index.html](dist/index.html) page and customize it by modifying the URL 
-in the `patra.init` method.
+in the `patra.init` method. By default, it points to `http://localhost:8080/metrics/metrics`
 
 ```javascript
 patra.init('http://localhost:8080/metrics/metrics');
