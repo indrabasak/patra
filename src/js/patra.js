@@ -1,9 +1,16 @@
 (function (patra, $) {
     'use strict';
 
+    /**
+     * Initializes Patra with the URL to fetch metrics
+     * @param url URL to fetch metrics
+     */
     patra.init = function (url) {
-        _url = url;
-        _keepRefreshing();
+        if (!_initialized) {
+            _initialized = true;
+            _url = url;
+            _keepRefreshing();
+        }
     };
 
     /**
@@ -80,6 +87,16 @@
     var _searchClass = '.input-tree';
     Object.freeze(_searchClass);
 
+    /**
+     * Flag for checking if Patra has been initialized
+     * @type {boolean} true if initialized
+     * @private
+     */
+    var _initialized = false;
+
+    /**
+     * URL to fetch metrics
+     */
     var _url;
 
     /**
@@ -117,6 +134,7 @@
      * Listens to events generated from clicks on navigation links.
      * Displays the page (metric tree or JVM metrics) based on the link clicked.
      * The link clicked is made active.
+     * @private
      */
     var _assignEventListeners = function () {
         $('ul.docs li a.viewer').on('click', function (event) {
@@ -162,6 +180,7 @@
 
     /**
      * Initializes the metric tree. Clears the metric map before creating a new tree.
+     * @private
      */
     var _initializeTree = function () {
         _metricsMap.clear();
@@ -208,6 +227,7 @@
      * Adds a metric root node based on metric type
      * @param metricType {METRIC_TYPE} metricType the type of metric class
      * @param jsonData {string} metric data in json format
+     * @private
      */
     var _addMetricTree = function (metricType, jsonData) {
         var jsonNode = jsonData[metricType.type];
@@ -256,6 +276,7 @@
      * @param key {boolean} true if the node can be displayed in a metric graph
      * @param metricValue {boolean} true if the node represents a metric value
      * @param numeric {boolean} true if the value is numeric
+     * @private
      */
     var _addNode = function (metricType, parentId, childId, childTxt, key, metricValue, numeric) {
         var $parentNode = _$root.jstree(true).get_node(parentId);
@@ -289,6 +310,7 @@
      * @param metricType {METRIC_TYPE} metricType the type of metric class
      * @param path the path of the tree node
      * @returns {string} the metric key
+     * @private
      */
     var _retrieveKey = function (metricType, path) {
         var key = "";
@@ -307,19 +329,22 @@
     };
 
     /**
-     * Refreshes the metric tree and graph after every 15 sec
+     * Refreshes the metric tree and graph after every 2 sec
+     * @private
      */
     var _keepRefreshing = function () {
-        _refresh();
-        setInterval(_refresh, 2000);
+        _refreshXmlHttp();
+        setInterval(_refreshXmlHttp, 2000);
     };
 
     /**
-     * Makes an ajax call to fetch metrics
+     * Makes an ajax call to fetch metrics via jquery.
+     * Doesn't work for CORS
+     * @private
      */
-    var _refresh2 = function () {
+    var _refreshJQuery = function () {
         //var url = "metrics/metrics";
-        var url = "http://localhost:8080/metrics/metrics";
+        var url = _url;
         //$.support.cors = true;
         $.ajax({
             // contentType: "application/json",
@@ -345,8 +370,11 @@
         });
     };
 
-    var _refresh = function () {
-        //var url = 'http://localhost:8080/metrics/metrics';
+    /**
+     * Makes ajax call to retrieve metrics via XMLHttpRequest
+     * @private
+     */
+    var _refreshXmlHttp = function () {
         var url = _url;
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
@@ -379,13 +407,19 @@
 
     /**
      * Test method to fetch metric data from a file
+     * @private
      */
-    var _refresh1 = function () {
+    var _refreshGetJson = function () {
         $.getJSON('../data/metrics.json', function (data) {
             _updatePage(data);
         });
     };
 
+    /**
+     * Updates the viewer page - either overview otr JVM
+     * @param data metrics json data
+     * @private
+     */
     var _updatePage = function (data) {
         metricsViewer.refresh(data);
         if (_$root) {
@@ -399,6 +433,7 @@
     /**
      * Displays metric graph based on the selected tree node
      * @param data
+     * @private
      */
     var _displayViewer = function (data) {
         _$selectedNode = data.node;
@@ -408,6 +443,12 @@
         });
     };
 
+    /**
+     * Checks if a string is empty
+     * @param str {string} string to be checked
+     * @returns {boolean} true if the string is empty
+     * @private
+     */
     var _isEmpty = function (str) {
         return (!str || 0 === str.length);
     };
