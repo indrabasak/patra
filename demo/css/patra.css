@@ -1,0 +1,131 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #b3b3b3;
+  /*light gray*/
+  margin: 10px;
+  /*line-height: 1.5;
+  -webkit-font-smoothing: antialiased;*/ }
+
+a {
+  color: #729d34;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+nav {
+  position: relative;
+  /*width: 100%;*/
+  /*With new margin for body, nav was hanging off, so no width needs specified */
+  padding: 0 1em 1em;
+  background-color: #363636;
+  font-weight: 500;
+  padding: 14px; }
+
+nav ul {
+  height: auto;
+  margin: 0; }
+
+nav li {
+  display: inline-block; }
+
+.nav-inner {
+  position: relative;
+  max-width: 62em;
+  margin: 0 auto;
+  webkit-box-sizing: border-box;
+  moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.content {
+  /*width: 100%;*/
+  /* With new margin for body, no width specified for div "content" */
+  /*margin: 10px;*/ }
+
+.aside {
+  display: inline-block; }
+
+.left-nav {
+  background: #f6f6f6;
+  display: inline-block;
+  height: 100%;
+  width: 25%;
+  left: 2em;
+  top: 2em;
+  /*margin-right: 1%;*/
+  padding: 1em 0 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-box-shadow: 6px 0px 5px -2px #e6e6e6;
+  -moz-box-shadow: 6px 0px 5px -2px #e6e6e6;
+  box-shadow: 6px 0px 5px -2px #e6e6e6; }
+
+.left-input {
+  padding: 1em 1em 1em 1em; }
+
+.left-scroll {
+  overflow: auto;
+  /*padding-top: 2em;*/ }
+
+.left-scroll hr {
+  margin-top: 0;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #ddd; }
+
+.right {
+  display: inline-block;
+  float: right;
+  width: 75%;
+  height: 100%;
+  /*left: 2em;*/
+  /*top: 0;*/
+  padding: 3em 2em 0 5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: scroll; }
+
+footer {
+  clear: both; }
+
+.icon-green {
+  color: #00b359; }
+
+.icon-blue {
+  color: #003d99; }
+
+.icon-gray {
+  color: #e6e6e6; }
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative; }
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none; }
+
+/* align glyph */
+.left-addon .glyphicon {
+  left: 0px; }
+
+.right-addon .glyphicon {
+  right: 0px; }
+
+/* add padding  */
+.left-addon input {
+  padding-left: 30px; }
+
+.right-addon input {
+  padding-right: 30px; }
+
+.jvm {
+  margin: 10px;
+  padding: 0 2em 0 2em;
+  width: 70%;
+  margin: 0 auto; }

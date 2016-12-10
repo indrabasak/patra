@@ -6,6 +6,7 @@ var jsdoc = require("gulp-jsdoc");
 var jshint = require('gulp-jshint');
 var pkg = require('../package.json');
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
@@ -28,6 +29,7 @@ var htmlFiles = [src + '/html/' + '*.html'];
 var libJsFiles = [lib + '/js/' + "*.js"];
 var libCssFiles = [lib + '/css/' + "**/*"];
 var libFontFiles = [lib + '/fonts/' + "**/*"];
+var demo = './demo';
 
 var banner = ['/**',
     ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -39,13 +41,13 @@ var banner = ['/**',
 
 gulp.task('default', function (callback) {
     runSequence('jshint', 'build:js', 'build:css', 'copy:html',
-        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts',
+        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
         callback);
 });
 
 gulp.task('compile', function (callback) {
     runSequence('jshint', 'compile:js', 'build:css', 'copy:html',
-        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts',
+        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
         callback);
 });
 
@@ -158,6 +160,24 @@ gulp.task('copy:lib:css', function () {
 gulp.task('copy:lib:fonts', function () {
     return gulp.src(libFontFiles)
         .pipe(gulp.dest(distFont))
+        .on('error', log);
+});
+
+gulp.task('clean:demo', function() {
+    return  gulp.src([demo + '*'], {read: false})
+        .pipe(rimraf());
+});
+
+gulp.task('copy:demo', ['clean:demo'], function () {
+    return gulp.src(dist + '/**/*')
+        .pipe(gulp.dest(demo))
+        .on('error', log);
+});
+
+gulp.task('demo', ['copy:demo'], function () {
+    return gulp.src(dist + '/index.html')
+        .pipe(replace('http://localhost:8080/metrics/metrics', '../data/metrics.json'))
+        .pipe(gulp.dest(demo))
         .on('error', log);
 });
 
