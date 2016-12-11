@@ -10,8 +10,20 @@ a {
   color: #729d34;
   text-decoration: none; }
 
+div a {
+  color: #337ab7;
+  text-decoration: none; }
+
 a:hover {
-  text-decoration: underline; }
+  color: #ffffff; }
+
+div a:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+div a:active {
+  color: #ffffff;
+  text-decoration: none; }
 
 nav {
   position: relative;
@@ -22,6 +34,9 @@ nav {
   font-weight: 500;
   padding: 14px; }
 
+nav div {
+  display: inline-block; }
+
 nav ul {
   height: auto;
   margin: 0; }
@@ -29,13 +44,19 @@ nav ul {
 nav li {
   display: inline-block; }
 
+nav a {
+  margin-right: 20px; }
+
 .nav-inner {
   position: relative;
-  max-width: 62em;
-  margin: 0 auto;
+  width: 60%;
+  padding-left: 50%;
   webkit-box-sizing: border-box;
   moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+.nav-right {
+  width: 10%; }
 
 .content {
   /*width: 100%;*/
@@ -99,6 +120,15 @@ footer {
 
 .icon-gray {
   color: #e6e6e6; }
+
+.icon-red {
+  color: #DC143C; }
+
+.icon-manila {
+  color: #729d34; }
+
+.glyphicon.glyphicon-dashboard {
+  font-size: 40px; }
 
 /* enable absolute positioning */
 .inner-addon {

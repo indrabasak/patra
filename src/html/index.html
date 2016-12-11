@@ -15,6 +15,7 @@
     <link href='css/metricsgraphics.css' rel='stylesheet' type='text/css'>
     <link href='css/metricsviewer.css' rel='stylesheet' type='text/css'>
     <link href='css/default/style.css' rel='stylesheet' type='text/css'/>
+    <link href='css/proton/style.css' rel='stylesheet' type='text/css'/>
 
     <script src='js/jquery-1.11.3.min.js'></script>
     <script src="js/bootstrap-3.3.7.min.js"></script>
@@ -33,14 +34,15 @@
 <body>
 <header>
     <nav>
-        <section>
-            <div class='nav-inner'>
-                <ul class='docs'>
-                    <li><a href='#' id='goto-patra-tree' class='viewer active'>Overview</a></li>
-                    <li><a href='#' id='goto-patra-jvm' class='viewer'>JVM</a></li>
-                </ul>
-            </div>
-        </section>
+        <div class='nav-inner'>
+            <ul class='docs'>
+                <li><a href='#' id='goto-patra-tree' class='viewer active'>Overview</a></li>
+                <li><a href='#' id='goto-patra-jvm' class='viewer'>JVM</a></li>
+            </ul>
+        </div>
+        <div id='traffic' class='nav-right'>
+            <span class="glyphicon glyphicon-dashboard icon-red" id="logIcon"> </span>
+        </div>
     </nav>
 </header>
 
