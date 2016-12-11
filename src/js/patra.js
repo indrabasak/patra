@@ -188,9 +188,12 @@
 
         _$root = $(_treedId).jstree({
             "core": {
-                check_callback: true
+                check_callback: true,
+                "themes":  {
+                    "name": "proton",
+                    "responsive": true
+                }
             },
-            "themes": {},
             "ui": {},
             "types": {
                 "key": {
@@ -202,9 +205,11 @@
                 "value-str": {
                     "icon": "glyphicon glyphicon-leaf icon-green"
                 },
-                "default": {}
+                "default": {
+                    "icon": "glyphicon glyphicon-folder-close icon-manila"
+                }
             },
-            "plugins": ["search", "sort", "wholerow", "types"]
+            "plugins": ["search", "sort", "types"]
         });
 
         /**
@@ -212,6 +217,24 @@
          */
         $(_treedId).on('select_node.jstree', function (e, data) {
             _displayViewer(data);
+        });
+
+        /**
+         * Display an open folder icon when open node
+         */
+        $(_treedId).on('open_node.jstree', function (e, data) {
+            if (data.node.type !== 'key') {
+                data.instance.set_icon(data.node, "glyphicon glyphicon-folder-open icon-manila");
+            }
+        });
+
+        /**
+         * Display an close folder icon when close node
+         */
+        $(_treedId).on('close_node.jstree', function (e, data) {
+            if (data.node.type !== 'key') {
+                data.instance.set_icon(data.node, "glyphicon glyphicon-folder-close icon-manila");
+            }
         });
 
         /**
@@ -377,32 +400,40 @@
     var _refreshXmlHttp = function () {
         var url = _url;
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.setRequestHeader('accept', 'application/json; charset=UTF-8');
-        xhr.withCredentials = false;
-        xhr.onload = function () {
-            if (this.status == 200) {
-                if (this.responseText && !_isEmpty(this.responseText)) {
-                    try {
-                        var jsonResponse = JSON.parse(this.responseText);
-                        _updatePage(jsonResponse);
-                    } catch (err) {
+        try {
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader('accept', 'application/json; charset=UTF-8');
+            xhr.withCredentials = false;
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    _updateTrafficLight(true);
+                    if (this.responseText && !_isEmpty(this.responseText)) {
+                        try {
+                            var jsonResponse = JSON.parse(this.responseText);
+                            _updatePage(jsonResponse);
+                        } catch (err) {}
                     }
                 }
-            }
-        };
-        xhr.onreadystatechange = function () {
-            if (this.status == 200) {
-                if (this.responseText && !_isEmpty(this.responseText)) {
-                    try {
-                        var jsonResponse = JSON.parse(this.responseText);
-                        _updatePage(jsonResponse);
-                    } catch (err) {
+            };
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status == 200) {
+                        _updateTrafficLight(true);
+                        if (this.responseText && !_isEmpty(this.responseText)) {
+                            try {
+                                var jsonResponse = JSON.parse(this.responseText);
+                                _updatePage(jsonResponse);
+                            } catch (err) {}
+                        }
+                    } else {
+                        _updateTrafficLight(false);
                     }
                 }
-            }
-        };
-        xhr.send();
+            };
+            xhr.send();
+        } catch (e) {
+            _updateTrafficLight(false);
+        }
     };
 
     /**
@@ -413,6 +444,26 @@
         $.getJSON('../data/metrics.json', function (data) {
             _updatePage(data);
         });
+    };
+
+    /**
+     * Changes the color of traffic light based on server response
+     * @param on {boolean} true when receiving metrics from the server
+     * @private
+     */
+    var _updateTrafficLight = function (on) {
+        var $trafficSpan = $('#traffic').find('span');
+        if (on) {
+            if ($trafficSpan.hasClass('icon-red')) {
+                $trafficSpan.removeClass('icon-red');
+                $trafficSpan.addClass('icon-green');
+            }
+        } else {
+            if ($trafficSpan.hasClass('icon-green')) {
+                $trafficSpan.removeClass('icon-green');
+                $trafficSpan.addClass('icon-red');
+            }
+        }
     };
 
     /**
