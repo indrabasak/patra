@@ -45,7 +45,8 @@ nav li {
   display: inline-block; }
 
 nav a {
-  margin-right: 20px; }
+  display: block;
+  padding: 0.7em 0.7em 0.7em 1em; }
 
 .nav-inner {
   position: relative;
@@ -113,7 +114,7 @@ footer {
   clear: both; }
 
 .icon-green {
-  color: #00b359; }
+  color: #729d34; }
 
 .icon-blue {
   color: #003d99; }
@@ -125,7 +126,7 @@ footer {
   color: #DC143C; }
 
 .icon-manila {
-  color: #729d34; }
+  color: #6b6b6b; }
 
 .glyphicon.glyphicon-dashboard {
   font-size: 40px; }
