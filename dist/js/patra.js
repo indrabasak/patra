@@ -212,10 +212,12 @@
             "ui": {},
             "types": {
                 "key": {
-                    "icon": "glyphicon glyphicon-stats icon-blue"
+                    //"icon": "glyphicon glyphicon-stats icon-blue"
+                    "icon": "fa fa-folder-open fa-line-chart icon-blue"
                 },
                 "value": {
-                    "icon": "glyphicon glyphicon-stats icon-green"
+                    //"icon": "glyphicon glyphicon-stats icon-green"
+                    "icon": "fa fa-line-chart icon-green"
                 },
                 "value-str": {
                     "icon": "glyphicon glyphicon-leaf icon-green"
