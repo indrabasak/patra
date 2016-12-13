@@ -239,7 +239,11 @@
         /**
          * Display an open folder icon when open node
          */
-        $(_treedId).on('open_node.jstree', function (e, data) {
+        $(_treedId).on('open_node.jstree',
+            /**
+             * @suppress {missingProperties}
+             */
+            function (e, data) {
             if (data.node.type !== 'key') {
                 data.instance.set_icon(data.node, "glyphicon glyphicon-folder-open icon-manila");
             }
@@ -248,7 +252,11 @@
         /**
          * Display an close folder icon when close node
          */
-        $(_treedId).on('close_node.jstree', function (e, data) {
+        $(_treedId).on('close_node.jstree',
+            /**
+             * @suppress {missingProperties}
+             */
+            function (e, data) {
             if (data.node.type !== 'key') {
                 data.instance.set_icon(data.node, "glyphicon glyphicon-folder-close icon-manila");
             }
@@ -264,9 +272,29 @@
     };
 
     /**
+     * Adds metric tree
+     * @param jsonData jsonData {object} metric data as json object
+     * @private
+     */
+    var _addTree = function(jsonData) {
+        for (var key in jsonData) {
+            if (jsonData.hasOwnProperty(key)) {
+                for (var typeKey in METRIC_TYPE) {
+                    if (METRIC_TYPE.hasOwnProperty(typeKey)) {
+                        var metricType = METRIC_TYPE[typeKey];
+                        if (key === metricType.type) {
+                            _addMetricTree(metricType, jsonData);
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    /**
      * Adds a metric root node based on metric type
      * @param metricType {METRIC_TYPE} metricType the type of metric class
-     * @param jsonData {string} metric data in json format
+     * @param jsonData {object} metric data as json object
      * @private
      */
     var _addMetricTree = function (metricType, jsonData) {
@@ -491,10 +519,7 @@
     var _updatePage = function (data) {
         metricsViewer.refresh(data);
         if (_$root) {
-            _addMetricTree(METRIC_TYPE.COUNTER, data);
-            _addMetricTree(METRIC_TYPE.GAUGE, data);
-            _addMetricTree(METRIC_TYPE.METER, data);
-            _addMetricTree(METRIC_TYPE.TIMER, data);
+            _addTree(data);
         }
     };
 
