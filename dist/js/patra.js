@@ -114,6 +114,7 @@
      */
     var _url;
 
+    //noinspection JSUnresolvedFunction
     /**
      * Map which hold the tree node paths. The key holds the node path, while the value hold the parent path.
      * Avoids insertion of duplicate tree nodes
@@ -198,6 +199,7 @@
      * @private
      */
     var _initializeTree = function () {
+        //noinspection JSUnresolvedFunction
         _metricsMap.clear();
         metricsViewer.clear();
 
@@ -245,6 +247,7 @@
              */
             function (e, data) {
             if (data.node.type !== 'key') {
+                //noinspection JSUnresolvedFunction
                 data.instance.set_icon(data.node, "glyphicon glyphicon-folder-open icon-manila");
             }
         });
@@ -258,6 +261,7 @@
              */
             function (e, data) {
             if (data.node.type !== 'key') {
+                //noinspection JSUnresolvedFunction
                 data.instance.set_icon(data.node, "glyphicon glyphicon-folder-close icon-manila");
             }
         });
@@ -298,10 +302,15 @@
      * @private
      */
     var _addMetricTree = function (metricType, jsonData) {
+        //noinspection JSUnresolvedVariable
         var jsonNode = jsonData[metricType.type];
+        //noinspection JSUnresolvedVariable
         var typeId = metricType.type;
+        //noinspection JSUnresolvedFunction
         if (!_metricsMap.has(typeId)) {
+            //noinspection JSUnresolvedVariable
             _addNode(metricType, "#", typeId, metricType.type, false, false, false);
+            //noinspection JSUnresolvedFunction
             _metricsMap.set(typeId, "#");
         }
 
@@ -313,12 +322,14 @@
             for (var i = 0; i < tokens.length; i++) {
                 parentId = id;
                 id = id + "." + tokens[i];
+                //noinspection JSUnresolvedFunction
                 if (!_metricsMap.has(id)) {
                     if (i === (tokens.length - 1)) {
                         _addNode(metricType, parentId, id, tokens[i], true, false, false);
                     } else {
                         _addNode(metricType, parentId, id, tokens[i], false, false, false);
                     }
+                    //noinspection JSUnresolvedFunction
                     _metricsMap.set(id, parentId);
                 }
             }
@@ -326,9 +337,11 @@
             parentId = id;
             $.each(val, function (k, v) {
                 id = parentId + "." + k;
+                //noinspection JSUnresolvedFunction
                 if (!_metricsMap.has(id)) {
                     var numeric = $.isNumeric(v);
                     _addNode(metricType, parentId, id, k, false, true, numeric);
+                    //noinspection JSUnresolvedFunction
                     _metricsMap.set(id, parentId);
                 }
             });
@@ -383,14 +396,15 @@
     var _retrieveKey = function (metricType, path) {
         var key = "";
 
-        if (metricType === METRIC_TYPE.COUNTER) {
-            key = path.substring(metricType.type.length + 1);
-        } else if (metricType === METRIC_TYPE.GAUGE) {
-            key = path.substring(metricType.type.length + 1);
-        } else if (metricType === METRIC_TYPE.METER) {
-            key = path.substring(metricType.type.length + 1);
-        } else if (metricType === METRIC_TYPE.TIMER) {
-            key = path.substring(metricType.type.length + 1);
+        for (var typeKey in METRIC_TYPE) {
+            if (METRIC_TYPE.hasOwnProperty(typeKey)) {
+                var mType = METRIC_TYPE[typeKey];
+                if (metricType === mType) {
+                    //noinspection JSUnresolvedVariable
+                    key = path.substring(metricType.type.length + 1);
+                    return key;
+                }
+            }
         }
 
         return key;
@@ -412,11 +426,10 @@
      */
     var _refreshJQuery = function () {
         //var url = "metrics/metrics";
-        var url = _url;
         //$.support.cors = true;
         $.ajax({
             // contentType: "application/json",
-            url: url,
+            url: _url,
             method: 'GET',
             dataType: "json",
             cache: false,
@@ -443,10 +456,9 @@
      * @private
      */
     var _refreshXmlHttp = function () {
-        var url = _url;
         var xhr = new XMLHttpRequest();
         try {
-            xhr.open('GET', url, true);
+            xhr.open('GET', _url, true);
             xhr.setRequestHeader('accept', 'application/json; charset=UTF-8');
             xhr.withCredentials = false;
             xhr.onload = function () {
