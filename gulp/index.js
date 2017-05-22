@@ -21,11 +21,13 @@ var dist = './dist';
 var doc = './doc';
 var distJs = dist + '/js';
 var distCss = dist + '/css';
+var distImg = dist + '/images';
 var distFont = dist + '/fonts';
 var lib = './lib';
 var jsFiles = [src + '/js/' + 'patra.js'];
 var scssFiles = [src + '/scss/' + 'patra.scss'];
 var htmlFiles = [src + '/html/' + '*.html'];
+var imgFiles = [src + '/images/' + '*.*'];
 var libJsFiles = [lib + '/js/' + "*.js"];
 var libCssFiles = [lib + '/css/' + "**/*"];
 var libFontFiles = [lib + '/fonts/' + "**/*"];
@@ -40,20 +42,20 @@ var banner = ['/**',
     ''].join('\n');
 
 gulp.task('default', function (callback) {
-    runSequence('jshint', 'build:js', 'build:css', 'copy:html',
+    runSequence('jshint', 'build:js', 'build:css', 'copy:html', 'copy:img',
         'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
         callback);
 });
 
 gulp.task('compile', function (callback) {
-    runSequence('jshint', 'compile:js', 'build:css', 'copy:html',
+    runSequence('jshint', 'compile:js', 'build:css', 'copy:html', 'copy:img',
         'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
         callback);
 });
 
 // deletes the distribution directory
 gulp.task('clean', function () {
-    return gulp.src([dist + '*'], {read: false})
+    return gulp.src([dist + '*', demo + '*'], {read: false})
         .pipe(rimraf());
 });
 
@@ -141,6 +143,13 @@ gulp.task('copy:html', function () {
 
     return gulp.src(htmlFiles)
         .pipe(gulp.dest(dist))
+        .on('error', log);
+});
+
+gulp.task('copy:img', function () {
+
+    return gulp.src(imgFiles)
+        .pipe(gulp.dest(distImg))
         .on('error', log);
 });
 
