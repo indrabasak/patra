@@ -2,7 +2,7 @@
 
 ![](./src/images/logo_200px.png)
 
-**Patra** project allows you to visualize [Dropwizard Metrics](http://metrics.dropwizard.io/) in a user friendly way.
+**Patra** project visualizes [Dropwizard Metrics](http://metrics.dropwizard.io/) in a user friendly way.
 Dropwizard metrics are formerly known as Coda Hale/Yammer metrics.
 
 Patra is a collection of HTML, JavaScript, and CSS files that dynamically generates pages for viewing metrics.
