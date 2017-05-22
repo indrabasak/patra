@@ -1,17 +1,18 @@
-<div class="right">
-    <div id='trunk-div'></div>
-</div>
-
-<aside class="left-nav">
-    <section class="left-input">
-        <div class="inner-addon left-addon">
-            <i class="glyphicon glyphicon-search icon-gray"></i>
-            <input type="search" class="input-tree form-control" placeholder="Filter"/>
+<section class="trunk">
+    <row>
+        <div class="col-lg-3 col-sm-12 left">
+            <section class="left-input">
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-search icon-gray"></i>
+                    <input type="search" class="input-tree form-control" placeholder="Filter"/>
+                </div>
+            </section>
+            <section class="left-scroll">
+                <hr/>
+                <div id='jstree-div'>
+                </div>
+            </section>
         </div>
-    </section>
-    <section class="left-scroll">
-        <hr/>
-        <div id='jstree-div'>
-        </div>
-    </section>
-</aside>
+        <div id='trunk-div' class="col-lg-7 col-sm-12 right"></div>
+    </row>
+</section>
