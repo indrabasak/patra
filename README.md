@@ -1,6 +1,6 @@
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status][travis-badge]][travis-badge-url]
 
-![logo](https://cdn.rawgit.com/indrabasak/patra/master/src/images/logo_40px.svg)
+![](./src/images/logo_200px.png)
 
 **Patra** project allows you to visualize [Dropwizard Metrics](http://metrics.dropwizard.io/) in a user friendly way.
 Dropwizard metrics are formerly known as Coda Hale/Yammer metrics.
