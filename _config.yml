@@ -1,6 +1,9 @@
 theme: jekyll-theme-midnight
 
 baseurl: /patra
+
 title: Patra
+description: Patra visualizes Dropwizard Metrics
+
 author: Indra Basak
 
