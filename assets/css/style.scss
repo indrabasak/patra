@@ -82,6 +82,11 @@ footer {
       &.logo {
         float: left;
         margin-right: 10px;
+
+        a {
+          margin-top: 0px;
+        }
+
       }
 
       &.fork {
