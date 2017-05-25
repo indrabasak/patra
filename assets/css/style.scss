@@ -85,6 +85,10 @@ footer {
 
         a {
           margin-top: 0px;
+
+          &:hover {
+            box-shadow: none;
+          }
         }
 
       }
