@@ -11,3 +11,12 @@ other/htaccess.txt
 bare.html
 
 npm-debug.log
+
+_site
+.jekyll
+.jekyll-metadata
+.bundle
+.sass-cache
+## Gemfile
+Gemfile.lock
+package.json
