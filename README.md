@@ -19,7 +19,7 @@ patra.init('http://localhost:8080/metrics/metrics');
 ```
 ## Dependencies
 The MetricsViewer depends on the following libraries:
-1. [MetricsViewer.js](https://github.com/indrabasak/metrics-viewer ) is a JavaScript library for displaying Dropwizard Metrics data as line graphs. 
+1. [MetricsViewer.js](https://indrabasak.github.io/metrics-viewer/) is a JavaScript library for displaying Dropwizard Metrics data as line graphs. 
 2. [MetricsGraphics.js](http://metricsgraphicsjs.org) is a JavaScript library for visualizing time-series data.
 3. [D3](http://d3js.org) is a JavaScript library for manipulating documents based on data. MetricsGraphics.js is based on D3 library.
 4. [jQuery](http://jquery.com/) is a quintessential JavaScript library for manipulating HTML documents.
