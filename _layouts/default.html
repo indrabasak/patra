@@ -15,7 +15,8 @@
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="shortcut icon" type="image/png" href="{{ site.github.repository_url }}/src/images/logo-blue_40px.png"/>
+    <!--<link rel="shortcut icon" type="image/png" href="{{ site.github.repository_url }}/src/images/logo-blue_40px.png"/>-->
+    <link rel="shortcut icon" type="image/png" href="{{ site.logo }}"/>
 
 </head>
 <body>
@@ -23,17 +24,17 @@
     <nav>
         {% if site.logo %}
         <li class="logo"><a href="https://indrabasak.github.io/patra/">
-            <img height="30px" width="30px" src={{ site.logo }} alt="patra"/></a></li>
+            <img height="30px" width="30px" src="{{ site.logo }}" alt="patra"/></a></li>
         {% endif %}
 
         <li class="fork"><a href="{{ site.github.repository_url }}">Source</a></li>
 
         {% if site.docs %}
-        <li class="fork"><a href={{ site.docs }}>Docs</a></li>
+        <li class="fork"><a href="{{ site.docs }}">Docs</a></li>
         {% endif %}
 
         {% if site.demo %}
-        <li class="fork"><a href={{ site.demo }}>Demo</a></li>
+        <li class="fork"><a href="{{ site.demo }}">Demo</a></li>
         {% endif %}
 
         {% if site.show_downloads %}
