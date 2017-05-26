@@ -21,10 +21,21 @@
 <body>
 <div id="header-new">
     <nav>
+        {% if site.logo %}
         <li class="logo"><a href="https://indrabasak.github.io/patra/">
-            <img height="30px" width="30px" src="./src/images/logo-blue_40px.png" alt="patra"/></a></li>
+            <img height="30px" width="30px" src={{ site.logo }} alt="patra"/></a></li>
+        {% endif %}
+
         <li class="fork"><a href="{{ site.github.repository_url }}">Source</a></li>
-        <li class="fork"><a href="./demo/index.html">Demo</a></li>
+
+        {% if site.docs %}
+        <li class="fork"><a href={{ site.docs }}>Docs</a></li>
+        {% endif %}
+
+        {% if site.demo %}
+        <li class="fork"><a href={{ site.demo }}>Demo</a></li>
+        {% endif %}
+
         {% if site.show_downloads %}
         <li class="downloads"><a href="{{ site.github.zip_url }}">ZIP</a></li>
         <li class="downloads"><a href="{{ site.github.tar_url }}">TAR</a></li>
@@ -39,9 +50,6 @@
         <div id="title">
             <h1>{{ site.title | default: site.github.repository_name }}</h1>
             <p>{{ site.description | default: site.github.project_tagline }}</p>
-<!--            <hr>
-            <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
-            <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>-->
         </div>
 
         {{ content }}
