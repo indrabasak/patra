@@ -149,10 +149,11 @@ footer {
 }*/
 .navbar-brand {
   padding: 20px 20px;
-  font-family: 'Galdeano', sans-serif; }
+  font-family: 'Galdeano', sans-serif;
+  font-size: 2.3em; }
 
 .navbar-inverse .navbar-brand {
-  font-size: 2.0em;
+  font-size: 2.3em;
   font-weight: bold;
   color: #ffffff; }
 
