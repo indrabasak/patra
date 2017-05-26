@@ -224,7 +224,8 @@ custom-navbar .fa {
     padding: 8px 5px;
   }
   .custom-navbar .navbar-toggle {
-    float: left
+    float: left;
+    margin-top: 20px;
   }
   .custom-navbar .navbar-header {
     float: left;
@@ -233,6 +234,10 @@ custom-navbar .fa {
   .custom-navbar .navbar-collapse {
     clear: both;
     float: none;
+  }
+
+  .custom-navbar .navbar-traffic {
+    padding: 10px 20px;
   }
 }
 
@@ -291,7 +296,8 @@ custom-navbar .fa {
     overflow: auto;
     -webkit-box-shadow: 6px 0px 5px -2px #e6e6e6;
     -moz-box-shadow: 6px 0px 5px -2px #e6e6e6;
-    box-shadow: 6px 0px 5px -2px #e6e6e6;
+    //box-shadow: 6px 0px 5px -2px #e6e6e6;
+    box-shadow: 6px 0px 7px 2px #e6e6e6;
 
     z-index: 999;
   }
