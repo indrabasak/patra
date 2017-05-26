@@ -11,3 +11,5 @@ logo: ./src/images/logo-blue_40px.png
 #docs:
 demo: ./demo/index.html
 blog: https://indrabasak.github.io
+
+show_downloads: true
