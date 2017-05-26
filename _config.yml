@@ -7,3 +7,6 @@ description: Visualizer of Dropwizard Metrics
 
 author: Indra Basak
 
+logo: ./src/images/logo-blue_40px.png
+#docs:
+demo: ./demo/index.html
