@@ -271,11 +271,12 @@ custom-navbar .fa {
 }
 
 .right {
-  display: flex;
+  //display: flex;
   justify-content: center;
   //  align-items : center;
   background-color: #FFF;
   height: 100%;
+  padding-left: 20px;
   color: #3d231b;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -283,7 +284,8 @@ custom-navbar .fa {
   overflow: scroll;
 }
 
-@media (max-width: 1200px) {
+//@media only screen and (max-width : 480px) {
+@media (max-width: 767px) {
   .left {
     background: #f6f6f6;
     height: 40%;
@@ -297,7 +299,7 @@ custom-navbar .fa {
     -webkit-box-shadow: 6px 0px 5px -2px #e6e6e6;
     -moz-box-shadow: 6px 0px 5px -2px #e6e6e6;
     //box-shadow: 6px 0px 5px -2px #e6e6e6;
-    box-shadow: 6px 0px 7px 2px #e6e6e6;
+    box-shadow: 0px 0px 7px 0px #e6e6e6;
 
     z-index: 999;
   }
