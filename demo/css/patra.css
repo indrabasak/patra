@@ -128,6 +128,9 @@ footer {
 .navbar-nav > li {
   text-transform: uppercase; }
 
+.navbar-inverse .navbar-nav > li > a.active {
+  color: #ffffff; }
+
 /*
 .navbar-nav > li > a {
   padding-top: 20px;
@@ -188,6 +191,11 @@ custom-navbar .fa {
 
 .viewer {
   padding-top: 5px; }
+
+.viewer > h3 {
+  font-size: 18px;
+  word-wrap: break-word;
+  width: 40em; }
 
 .trunk {
   height: 100%; }
