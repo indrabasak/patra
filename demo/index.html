@@ -30,7 +30,17 @@
 
     <script>
         $(function () {
-            patra.init('../data/metrics.json');
+            var location = window.location.href;
+            var link = document.createElement('a');
+            link.setAttribute('href', location);
+
+            var url = link.protocol + '//' + link.hostname;
+            if (typeof link.port != 'undefined') {
+                url = url + ':' + link.port;
+            }
+            url = '../data/metrics.json';
+
+            patra.init(url);
         });
     </script>
 </head>

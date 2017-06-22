@@ -185,7 +185,7 @@ gulp.task('copy:demo', ['clean:demo'], function () {
 
 gulp.task('demo', ['copy:demo'], function () {
     return gulp.src(dist + '/index.html')
-        .pipe(replace('http://localhost:8080/metrics/metrics', '../data/metrics.json'))
+        .pipe(replace('url + \'/metrics/metrics\'', '\'../data/metrics.json\''))
         .pipe(gulp.dest(demo))
         .on('error', log);
 });
