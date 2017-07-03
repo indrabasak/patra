@@ -6,13 +6,13 @@
  */
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['jquery', 'MG', 'jstree'], factory);
+    define(['jquery', 'MG', 'HV', 'jstree'], factory);
   } else if (typeof exports === 'object') {
-    module.exports = factory(require('jquery'), require('MG'), require('jstree'));
+    module.exports = factory(require('jquery'), require('MG'), require('HV'), require('jstree'));
   } else {
-    root.patra = factory(root.jQuery, root.MG, root.jstree);
+    root.patra = factory(root.jQuery, root.MG, root.HV, root.jstree);
   }
-}(this, function($, MG, jstree) {
+}(this, function($, MG, HV, jstree) {
 (function (patra, $) {
     'use strict';
 
@@ -162,6 +162,7 @@
 
             //clear the old div tags
             metricsViewer.clear();
+            hystrixViewer.clear();
 
             //get the name of the viewer, stars after 'goto-' phrase
             var currentPage = /** @type {string} */ ($(this).attr('id').slice(5));
@@ -202,6 +203,7 @@
         //noinspection JSUnresolvedFunction
         _metricsMap.clear();
         metricsViewer.clear();
+        hystrixViewer.clear();
 
         _$root = $(_treedId).jstree({
             "core": {
@@ -530,6 +532,7 @@
      */
     var _updatePage = function (data) {
         metricsViewer.refresh(data);
+        hystrixViewer.refresh(data);
         if (_$root) {
             _addTree(data);
         }
@@ -543,6 +546,7 @@
     var _displayViewer = function (data) {
         _$selectedNode = data.node;
         metricsViewer.clear();
+        hystrixViewer.clear();
 
         $(_viewerId).load('patra-viewer.html', function () {
         });

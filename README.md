@@ -26,7 +26,7 @@ The MetricsViewer depends on the following libraries:
 5. [jsTree](https://www.jstree.com/) is a JavaScript library for creating interactive trees.
 
 # Build
-1. Check out the [project](https://github.com/indrabasak/metrics-viewer).
+1. Check out the [project](https://github.com/indrabasak/patra).
 2. Install [Node.js](http://nodejs.org).
 3. Install [gulp](http://gulpjs.com) from the project root directory.
 ```    

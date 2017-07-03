@@ -23,14 +23,18 @@ var distJs = dist + '/js';
 var distCss = dist + '/css';
 var distImg = dist + '/images';
 var distFont = dist + '/fonts';
+var distTmpl = dist + '/templates';
 var lib = './lib';
 var jsFiles = [src + '/js/' + 'patra.js'];
+var jsHytsrixFiles = [src + '/js/' + 'hystrixCommand.js'];
 var scssFiles = [src + '/scss/' + 'patra.scss'];
 var htmlFiles = [src + '/html/' + '*.html'];
+var tmplFiles = [src + '/templates/' + '*.html'];
 var imgFiles = [src + '/images/' + '*.*'];
 var libJsFiles = [lib + '/js/' + "*.js"];
 var libCssFiles = [lib + '/css/' + "**/*"];
 var libFontFiles = [lib + '/fonts/' + "**/*"];
+var libImagesFiles = [lib + '/images/' + "**/*"];
 var demo = './demo';
 
 var banner = ['/**',
@@ -42,14 +46,14 @@ var banner = ['/**',
     ''].join('\n');
 
 gulp.task('default', function (callback) {
-    runSequence('jshint', 'build:js', 'build:css', 'copy:html', 'copy:img',
-        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
+    runSequence('jshint', 'build:js', 'build:hystrix-js', 'build:css', 'copy:html', 'copy:templates', 'copy:img',
+        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'copy:lib:images', 'demo',
         callback);
 });
 
 gulp.task('compile', function (callback) {
     runSequence('jshint', 'compile:js', 'build:css', 'copy:html', 'copy:img',
-        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'demo',
+        'copy:lib:js', 'copy:lib:css', 'copy:lib:fonts', 'copy:lib:images', 'demo',
         callback);
 });
 
@@ -80,6 +84,13 @@ gulp.task('build:js', ['clean'], function () {
                             param: 'MG'
                         },
                         {
+                            name: 'HV',
+                            amd: 'HV',
+                            cjs: 'HV',
+                            global: 'HV',
+                            param: 'HV'
+                        },
+                        {
                             name: 'jstree',
                             amd: 'jstree',
                             cjs: 'jstree',
@@ -98,6 +109,48 @@ gulp.task('build:js', ['clean'], function () {
         .pipe(header(banner, {pkg: pkg}))
         .pipe(gulp.dest(distJs))
         .pipe(rename('patra.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(distJs));
+});
+
+gulp.task('build:hystrix-js', function () {
+    return gulp.src(jsHytsrixFiles)
+        .pipe(umd(
+            {
+                dependencies: function () {
+                    return [{
+                        name: 'jquery',
+                        amd: 'jquery',
+                        cjs: 'jquery',
+                        global: 'jQuery',
+                        param: '$'
+                    },
+                        {
+                            name: 'd3',
+                            amd: 'd3',
+                            cjs: 'd3',
+                            global: 'd3',
+                            param: 'd3'
+                        },
+                        {
+                            name: 'HV',
+                            amd: 'HV',
+                            cjs: 'HV',
+                            global: 'HV',
+                            param: 'HV'
+                        }];
+                },
+                exports: function () {
+                    return "hystrixCommand";
+                },
+                namespace: function () {
+                    return "hystrixCommand";
+                }
+            }
+        ))
+        .pipe(header(banner, {pkg: pkg}))
+        .pipe(gulp.dest(distJs))
+        .pipe(rename('hystrixCommand.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(distJs));
 });
@@ -146,6 +199,13 @@ gulp.task('copy:html', function () {
         .on('error', log);
 });
 
+gulp.task('copy:templates', function () {
+
+    return gulp.src(tmplFiles)
+        .pipe(gulp.dest(distTmpl))
+        .on('error', log);
+});
+
 gulp.task('copy:img', function () {
 
     return gulp.src(imgFiles)
@@ -169,6 +229,12 @@ gulp.task('copy:lib:css', function () {
 gulp.task('copy:lib:fonts', function () {
     return gulp.src(libFontFiles)
         .pipe(gulp.dest(distFont))
+        .on('error', log);
+});
+
+gulp.task('copy:lib:images', function () {
+    return gulp.src(libImagesFiles)
+        .pipe(gulp.dest(distImg))
         .on('error', log);
 });
 

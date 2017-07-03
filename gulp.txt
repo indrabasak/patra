@@ -24,6 +24,7 @@ npm install metrics-graphics@2.10.1 --save-dev
 npm install jshint-stylish --save-dev
 npm install gulp-header --save-dev
 npm install run-sequence --save-dev
+npm install gulp-concat --save-dev
 
 npm install jquery@1.11.3 --save-dev
 

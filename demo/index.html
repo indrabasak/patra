@@ -13,7 +13,8 @@
     <link href='css/font-awesome.css' rel='stylesheet' type='text/css'>
     <link href='css/bootstrap-3.3.7.min.css' rel='stylesheet' type='text/css'>
     <link href='css/metricsgraphics-2.11.0.css' rel='stylesheet' type='text/css'>
-    <link href='css/metricsviewer-1.0.0.css' rel='stylesheet' type='text/css'>
+    <link href='css/hystrixviewer.css' rel='stylesheet' type='text/css'>
+    <link href='css/patra.css' rel='stylesheet' type='text/css'>
     <link href='css/default/style.css' rel='stylesheet' type='text/css'/>
     <link href='css/proton/style.css' rel='stylesheet' type='text/css'/>
     <link href='css/patra.css' rel='stylesheet' type='text/css'>
@@ -21,12 +22,14 @@
     <link rel="shortcut icon" type="image/png" href="images/logo-blue_40px.png"/>
 
     <script src='js/jquery-1.11.3.min.js'></script>
-    <script src="js/bootstrap-3.3.7.min.js"></script>
-    <script src="js/d3.v4.min.js"></script>
+    <script src='js/bootstrap-3.3.7.min.js'></script>
+    <script src='js/d3.v4.min.js'></script>
     <script src='js/metricsgraphics-2.11.0.min.js'></script>
     <!--<script src='js/metricsviewer-1.0.0.min.js'></script>-->
     <script src='js/metricsviewer-1.0.0.js'></script>
-    <script src="js/jstree.min.js"></script>
+    <script src='js/hystrixviewer.js'></script>
+    <script src='js/jquery.tinysort.min.js'></script>
+    <script src='js/jstree.min.js'></script>
 
     <script>
         $(function () {
@@ -78,6 +81,7 @@
                 <ul class="nav navbar-nav docs">
                     <li><a href="#" id="goto-patra-tree" class="viewer active item -link">Overview</a></li>
                     <li><a href="#" id="goto-patra-jvm" class="viewer item -link">JVM</a></li>
+                    <li><a href="#" id="goto-patra-hystrix" class="viewer item -link">Hystrix</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

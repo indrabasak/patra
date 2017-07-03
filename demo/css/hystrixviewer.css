@@ -1,0 +1,445 @@
+.hystrix-outer-container html, .hystrix-outer-container body,
+.hystrix-outer-container span,
+.hystrix-outer-container object, .hystrix-outer-container iframe,
+.hystrix-outer-container h1, .hystrix-outer-container h2,
+.hystrix-outer-container h3, .hystrix-outer-container h4,
+.hystrix-outer-container h5, .hystrix-outer-container h6,
+.hystrix-outer-container p, .hystrix-outer-container blockquote,
+.hystrix-outer-container pre, .hystrix-outer-container abbr,
+.hystrix-outer-container address, .hystrix-outer-container cite,
+.hystrix-outer-container code, .hystrix-outer-container del,
+.hystrix-outer-container dfn, .hystrix-outer-container em,
+.hystrix-outer-container img, .hystrix-outer-container ins,
+.hystrix-outer-container kbd, .hystrix-outer-container q,
+.hystrix-outer-container samp, .hystrix-outer-container small,
+.hystrix-outer-container strong, .hystrix-outer-container sub,
+.hystrix-outer-container sup, .hystrix-outer-container var,
+.hystrix-outer-container b, .hystrix-outer-container i,
+.hystrix-outer-container dl, .hystrix-outer-container dt,
+.hystrix-outer-container dd, .hystrix-outer-container ol,
+.hystrix-outer-container ul, .hystrix-outer-container li,
+.hystrix-outer-container fieldset, .hystrix-outer-container form,
+.hystrix-outer-container label, .hystrix-outer-container legend,
+.hystrix-outer-container table, .hystrix-outer-container caption,
+.hystrix-outer-container tbody, .hystrix-outer-container tfoot,
+.hystrix-outer-container thead, .hystrix-outer-container tr,
+.hystrix-outer-container th, .hystrix-outer-container td,
+.hystrix-outer-container article, .hystrix-outer-container aside,
+.hystrix-outer-container canvas, .hystrix-outer-container details,
+.hystrix-outer-container figcaption, .hystrix-outer-container figure,
+.hystrix-outer-container footer, .hystrix-outer-container header,
+.hystrix-outer-container hgroup, .hystrix-outer-container menu,
+.hystrix-outer-container nav, .hystrix-outer-container section,
+.hystrix-outer-container summary, .hystrix-outer-container time,
+.hystrix-outer-container mark, .hystrix-outer-container audio,
+.hystrix-outer-container video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+.hystrix-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+  line-height: 1;
+  font-size: 14px; }
+
+.hystrix-row {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.hystrix-spacer {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 4px;
+  clear: both; }
+
+.hystrix-menubar {
+  overflow: hidden;
+  border-bottom: 1px solid black; }
+
+.hystrix-menubar div {
+  padding-bottom: 5px;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: 80%;
+  font-family: 'Bookman Old Style', Bookman, 'URW Bookman L', 'Palatino Linotype', serif;
+  float: left; }
+
+.hystrix-last {
+  margin-right: 0px; }
+
+.hystrix-menubar .title {
+  float: left;
+  padding-right: 20px;
+  font-size: 110%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  vertical-align: bottom; }
+
+.hystrix-menubar .menu_actions {
+  float: left;
+  position: relative;
+  top: 4px; }
+
+.hystrix-menubar .menu_legend {
+  float: right;
+  position: relative;
+  top: 4px; }
+
+.hystrix-menubar a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: underline;
+  color: -webkit-link; }
+
+h3.sectionHeader {
+  color: black;
+  font-size: 110%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  background: lightgrey; }
+
+.success {
+  color: green; }
+
+.shortCircuited {
+  color: blue; }
+
+.timeout {
+  color: #FF9900;
+  /* shade of orange */ }
+
+.failure {
+  color: red; }
+
+.rejected {
+  color: purple; }
+
+.exceptionsThrown {
+  color: brown; }
+
+.badRequest {
+  color: lightSeaGreen; }
+
+@media screen and (max-width: 1100px) {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px; } }
+
+#streamHeader {
+  height: 65px;
+  margin-bottom: 5px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+#streamHeader h2 {
+  float: left;
+  color: black;
+  position: relative;
+  padding-left: 20px;
+  top: 26px;
+  font-size: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+#hystrix-header {
+  background: #FFFFFF url(../images/hystrix-logo-tagline-tiny.png) no-repeat scroll 99% 0%;
+  height: 65px;
+  margin-bottom: 5px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1; }
+
+#hystrix-header h2 {
+  float: left;
+  color: black;
+  position: relative;
+  padding-left: 20px;
+  top: 26px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+@media screen and (max-width: 1100px) {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px; } }
+
+.dependencies {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1; }
+
+.dependencies p {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1; }
+
+/* --------------------- START*/
+.dependencies .spacer {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 4px;
+  clear: both; }
+
+.dependencies .last {
+  margin-right: 0px; }
+
+.dependencies span.loading {
+  display: block;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  color: gray;
+  text-align: center; }
+
+.dependencies span.loading.failed {
+  color: red; }
+
+.dependencies div.monitor {
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px; }
+
+.dependencies div.monitor p.name {
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: right;
+  padding-bottom: 5px; }
+
+.dependencies div.monitor_data {
+  margin: 0 auto; }
+
+/* override the HREF when we have specified it as a tooltip to not act like a link */
+.dependencies div.monitor_data a.hystrix-tooltip {
+  text-decoration: none;
+  cursor: default; }
+
+.dependencies div.monitor_data div.counters {
+  text-align: right;
+  padding-bottom: 10px;
+  font-size: 10pt;
+  clear: both; }
+
+.dependencies div.monitor_data div.counters div.hystrix-cell {
+  display: inline;
+  float: right; }
+
+.dependencies .borderRight {
+  border-right: 1px solid grey;
+  padding-right: 6px;
+  padding-left: 8px; }
+
+.dependencies div.hystrix-cell .line {
+  display: block; }
+
+.dependencies div.monitor_data a,
+.dependencies span.rate_value {
+  font-weight: bold; }
+
+.dependencies span.smaller {
+  font-size: 8pt;
+  color: grey; }
+
+.dependencies div.tableRow {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 8pt;
+  margin: 0 auto;
+  clear: both; }
+
+.dependencies div.tableRow .hystrix-cell {
+  float: left; }
+
+.dependencies div.tableRow .hystrix-header {
+  width: 18%;
+  text-align: right;
+  padding-right: 2%; }
+
+.dependencies div.tableRow .hystrix-header.hystrix-left {
+  width: 85px; }
+
+.dependencies div.tableRow .hystrix-header.hystrix-right {
+  width: 75px; }
+
+.dependencies div.tableRow .hystrix-data {
+  width: 17%;
+  font-weight: bold;
+  text-align: right; }
+
+.dependencies div.monitor {
+  width: 245px;
+  /* we want a fixed width instead of percentage as I want the boxes to be a set size and then fill in as many as can fit in each row ... this allows 3 columns on an iPad */
+  height: 155px; }
+
+.dependencies .success {
+  color: green; }
+
+.dependencies .shortCircuited {
+  color: blue; }
+
+.dependencies .timeout {
+  color: #FF9900;
+  /* shade of orange */ }
+
+.dependencies .failure {
+  color: red; }
+
+.dependencies .rejected {
+  color: purple; }
+
+.dependencies .exceptionsThrown {
+  color: brown; }
+
+.dependencies .badRequest {
+  color: lightSeaGreen; }
+
+.dependencies div.monitor_data a.rate {
+  color: black;
+  font-size: 11pt; }
+
+.dependencies div.rate {
+  padding-top: 1px;
+  clear: both;
+  text-align: right; }
+
+.dependencies .errorPercentage {
+  color: grey; }
+
+.dependencies div.hystrix-cell .errorPercentage {
+  padding-left: 5px;
+  font-size: 12pt !important; }
+
+.dependencies div.monitor div.chart svg text {
+  fill: white; }
+
+.dependencies div.circuitStatus {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 9pt;
+  margin: 0 auto;
+  clear: both;
+  text-align: right;
+  padding-top: 4px; }
+
+/* sparkline */
+.dependencies path {
+  stroke: steelblue;
+  stroke-width: 1;
+  fill: none; }
+
+.dependencyThreadPools {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 0.875em;
+  line-height: 1; }
+
+.dependencyThreadPools p {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 0.875em;
+  line-height: 1; }
+
+.dependencyThreadPools .spacer {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 4px;
+  clear: both; }
+
+.dependencyThreadPools .last {
+  margin-right: 0px; }
+
+.dependencyThreadPools span.loading {
+  display: block;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  color: gray;
+  text-align: center; }
+
+.dependencyThreadPools span.loading.failed {
+  color: red; }
+
+.dependencyThreadPools div.monitor {
+  float: left;
+  margin-right: 5px;
+  /* these are tweaked to look good on desktop and iPad portrait, and fit things densely */
+  margin-top: 5px; }
+
+.dependencyThreadPools div.monitor p.name {
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: right;
+  padding-bottom: 5px; }
+
+.dependencyThreadPools div.monitor_data {
+  margin: 0 auto; }
+
+.dependencyThreadPools span.smaller {
+  font-size: 8pt;
+  color: grey; }
+
+.dependencyThreadPools div.tableRow {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 8pt;
+  margin: 0 auto;
+  clear: both; }
+
+.dependencyThreadPools div.tableRow .hystrix-cell {
+  float: left; }
+
+.dependencyThreadPools div.tableRow .hystrix-header {
+  text-align: right;
+  padding-right: 5px; }
+
+.dependencyThreadPools div.tableRow .hystrix-header.hystrix-left {
+  width: 85px; }
+
+.dependencyThreadPools div.tableRow .hystrix-header.hystrix-right {
+  width: 75px; }
+
+.dependencyThreadPools div.tableRow .hystrix-data {
+  font-weight: bold;
+  text-align: right; }
+
+.dependencyThreadPools div.tableRow .hystrix-data.hystrix-left {
+  width: 30px; }
+
+.dependencyThreadPools div.tableRow .hystrix-data.hystrix-right {
+  width: 45px; }
+
+.dependencyThreadPools div.monitor {
+  width: 245px;
+  /* we want a fixed width instead of percentage as I want the boxes to be a set size and then fill in as many as can fit in each row ... this allows 3 columns on an iPad */
+  height: 110px; }
+
+/* override the HREF when we have specified it as a tooltip to not act like a link */
+.dependencyThreadPools div.monitor_data a.hystrix-tooltip {
+  text-decoration: none;
+  cursor: default; }
+
+.dependencyThreadPools div.monitor_data a.rate {
+  font-weight: bold;
+  color: black;
+  font-size: 11pt; }
+
+.dependencyThreadPools div.rate {
+  padding-top: 1px;
+  clear: both;
+  text-align: right; }
+
+.dependencyThreadPools span.rate_value {
+  font-weight: bold; }
+
+.dependencyThreadPools div.monitor div.chart svg text {
+  fill: white; }
+
+.dependencyThreadPools #hidden {
+  width: 1px;
+  height: 1px;
+  background: lightgrey;
+  display: none; }
