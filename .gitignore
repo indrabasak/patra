@@ -20,3 +20,4 @@ _site
 ## Gemfile
 Gemfile.lock
 package.json
+package-lock.json

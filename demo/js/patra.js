@@ -1,6 +1,6 @@
 /**
  * patra - Patra is a collection of HTML, JavaScript, and CSS assets for viewing Dropwizard (Codehale/Yammer) metrics.
- * @version v1.0.0
+ * @version v1.0.1
  * @author Indra Basak
  * @license Apache-2.0
  */
@@ -214,18 +214,16 @@
             "ui": {},
             "types": {
                 "key": {
-                    //"icon": "glyphicon glyphicon-stats icon-blue"
-                    "icon": "fa fa-folder-open fa-line-chart icon-blue"
+                    "icon": "fa fa-folder-open-o fa-line-chart icon-blue"
                 },
                 "value": {
-                    //"icon": "glyphicon glyphicon-stats icon-green"
                     "icon": "fa fa-line-chart icon-green"
                 },
                 "value-str": {
-                    "icon": "glyphicon glyphicon-leaf icon-green"
+                    "icon": "fa fa-leaf icon-green"
                 },
                 "default": {
-                    "icon": "glyphicon glyphicon-folder-close icon-manila"
+                    "icon": "fa fa-folder icon-manila"
                 }
             },
             "plugins": ["search", "sort", "types"]
@@ -248,7 +246,7 @@
             function (e, data) {
             if (data.node.type !== 'key') {
                 //noinspection JSUnresolvedFunction
-                data.instance.set_icon(data.node, "glyphicon glyphicon-folder-open icon-manila");
+                data.instance.set_icon(data.node, "fa fa-folder-open-o icon-manila");
             }
         });
 
@@ -262,7 +260,7 @@
             function (e, data) {
             if (data.node.type !== 'key') {
                 //noinspection JSUnresolvedFunction
-                data.instance.set_icon(data.node, "glyphicon glyphicon-folder-close icon-manila");
+                data.instance.set_icon(data.node, "fa fa-folder icon-manila");
             }
         });
 

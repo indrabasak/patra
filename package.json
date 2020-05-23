@@ -1,6 +1,6 @@
 {
   "name": "patra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Patra is a collection of HTML, JavaScript, and CSS assets for viewing Dropwizard (Codehale/Yammer) metrics.",
   "main": "index.js",
   "scripts": {
@@ -24,28 +24,30 @@
   },
   "homepage": "https://github.com/indrabasak/patra#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "graceful-fs": "^4.2.4",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
     "gulp-closure-compiler": "^0.4.0",
-    "gulp-connect": "^5.0.0",
+    "gulp-connect": "^5.7.0",
     "gulp-delete-file": "^1.0.2",
-    "gulp-header": "^1.8.8",
-    "gulp-jquery": "^1.1.2",
+    "gulp-header": "^2.0.9",
     "gulp-jsdoc": "^0.1.5",
-    "gulp-jshint": "^2.0.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-rimraf": "^0.2.1",
-    "gulp-sass": "^2.3.2",
-    "gulp-testem": "0.0.1",
-    "gulp-uglify": "^2.0.0",
-    "gulp-umd": "^0.2.0",
-    "jquery": "^1.11.3",
-    "jshint": "^2.9.4",
+    "gulp-jsdoc3": "^3.0.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rimraf": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-testem": "^0.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-umd": "^2.0.0",
+    "jquery": "^3.5.1",
+    "jshint": "^2.11.1",
     "jshint-stylish": "^2.2.1",
-    "metrics-graphics": "^2.10.1",
-    "run-sequence": "^1.2.2"
+    "metrics-graphics": "^2.15.6",
+    "run-sequence": "^2.2.1"
   },
   "dependencies": {
-    "del": "^2.2.2"
+    "del": "^5.1.0"
   }
 }
