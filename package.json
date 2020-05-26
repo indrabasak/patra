@@ -39,7 +39,7 @@
     "gulp-testem": "0.0.1",
     "gulp-uglify": "^2.0.0",
     "gulp-umd": "^0.2.0",
-    "jquery": "^1.11.3",
+    "jquery": "^3.5.1",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "metrics-graphics": "^2.10.1",
