@@ -1,39 +1,38 @@
 // Gulp and plugins
-var gulp = require('gulp');
-var closureCompiler = require('gulp-closure-compiler');
-var header = require('gulp-header');
-var jsdoc = require("gulp-jsdoc");
-var jshint = require('gulp-jshint');
-var pkg = require('../package.json');
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-var rimraf = require('gulp-rimraf');
-var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
-var testem = require('gulp-testem');
-var uglify = require('gulp-uglify');
-//var util = require('gulp-util');
-var umd = require('gulp-umd');
+const gulp = require('gulp');
+const closureCompiler = require('gulp-closure-compiler');
+const env = require('gulp-env');
+const header = require('gulp-header');
+const jsdoc = require("gulp-jsdoc3");
+const jshint = require('gulp-jshint');
+const pkg = require('../package.json');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const rimraf = require('gulp-rimraf');
+const sass = require('gulp-sass');
+const testem = require('gulp-testem');
+const uglify = require('gulp-uglify');
+const umd = require('gulp-umd');
 
 // paths
-var src = './src';
-var dist = './dist';
-var doc = './doc';
-var distJs = dist + '/js';
-var distCss = dist + '/css';
-var distImg = dist + '/images';
-var distFont = dist + '/fonts';
-var lib = './lib';
-var jsFiles = [src + '/js/' + 'patra.js'];
-var scssFiles = [src + '/scss/' + 'patra.scss'];
-var htmlFiles = [src + '/html/' + '*.html'];
-var imgFiles = [src + '/images/' + '*.*'];
-var libJsFiles = [lib + '/js/' + "**/*"];
-var libCssFiles = [lib + '/css/' + "**/*"];
-var libFontFiles = [lib + '/fonts/' + "**/*"];
-var demo = './demo';
+const src = './src';
+const dist = './dist';
+const doc = './doc';
+const distJs = dist + '/js';
+const distCss = dist + '/css';
+const distImg = dist + '/images';
+const distFont = dist + '/fonts';
+const lib = './lib';
+const jsFiles = [src + '/js/' + 'patra.js'];
+const scssFiles = [src + '/scss/' + 'patra.scss'];
+const htmlFiles = [src + '/html/' + '*.html'];
+const imgFiles = [src + '/images/' + '*.*'];
+const libJsFiles = [lib + '/js/' + "**/*"];
+const libCssFiles = [lib + '/css/' + "**/*"];
+const libFontFiles = [lib + '/fonts/' + "**/*"];
+const demo = './demo';
 
-var banner = ['/**',
+const banner = ['/**',
     ' * <%= pkg.name %> - <%= pkg.description %>',
     ' * @version v<%= pkg.version %>',
     ' * @author <%= pkg.author %>',
@@ -119,10 +118,36 @@ gulp.task('clean:doc', function () {
         .pipe(rimraf());
 });
 
-gulp.task('doc', gulp.series('clean:doc', function () {
-    return gulp.src(jsFiles)
-        .pipe(jsdoc(doc));
-}));
+gulp.task('set-debug-env', function (done) {
+    env({
+        vars: {
+            DEBUG: "gulp-jsdoc3"
+        }
+    });
+    done();
+});
+
+gulp.task('copy:img', function () {
+    return gulp.src(imgFiles)
+        .pipe(gulp.dest('./doc/src/images'));
+});
+
+gulp.task('doc', gulp.series('clean:doc', 'set-debug-env', function (callback) {
+    gulp.src(['README.md'].concat(jsFiles), {read: false})
+        .pipe(jsdoc({
+            'opts': {
+                'destination': './doc'
+            },
+            'plugins': [], // no plugins
+            'templates': {
+                'systemName': ' Patra',
+                'navType': 'inline',
+                'theme': 'flatly'
+            }
+        }, callback));
+
+
+}, 'copy:img'));
 
 // build css files from scss
 gulp.task('build:css', function () {

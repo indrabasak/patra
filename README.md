@@ -18,12 +18,12 @@ in the `patra.init` method. By default, it points to `http://localhost:8080/metr
 patra.init('http://localhost:8080/metrics/metrics');
 ```
 ## Dependencies
-The MetricsViewer depends on the following libraries:
-1. [MetricsViewer.js](https://indrabasak.github.io/metrics-viewer/) is a JavaScript library for displaying Dropwizard Metrics data as line graphs. 
-2. [MetricsGraphics.js](http://metricsgraphicsjs.org) is a JavaScript library for visualizing time-series data.
-3. [D3](http://d3js.org) is a JavaScript library for manipulating documents based on data. MetricsGraphics.js is based on D3 library.
-4. [jQuery](http://jquery.com/) is a quintessential JavaScript library for manipulating HTML documents.
-5. [jsTree](https://www.jstree.com/) is a JavaScript library for creating interactive trees.
+Patra 2.0 depends on the following libraries:
+1. [MetricsViewer.js (2.0.0)](https://indrabasak.github.io/metrics-viewer/) is a JavaScript library for displaying Dropwizard Metrics data as line graphs. 
+2. [MetricsGraphics.js (2.15.6)](http://metricsgraphicsjs.org) is a JavaScript library for visualizing time-series data.
+3. [D3 (5.16.0)](http://d3js.org) is a JavaScript library for manipulating documents based on data. MetricsGraphics.js is based on D3 library.
+4. [jQuery (3.5.1)](http://jquery.com/) is a quintessential JavaScript library for manipulating HTML documents.
+5. [jsTree (3.3.9)](https://www.jstree.com/) is a JavaScript library for creating interactive trees.
 
 # Build
 1. Check out the [project](https://github.com/indrabasak/metrics-viewer).

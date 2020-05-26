@@ -1,6 +1,6 @@
 {
   "name": "patra",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Patra is a collection of HTML, JavaScript, and CSS assets for viewing Dropwizard (Codehale/Yammer) metrics.",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,8 @@
     "gulp-closure-compiler": "^0.4.0",
     "gulp-connect": "^5.7.0",
     "gulp-delete-file": "^1.0.2",
+    "gulp-env": "^0.4.0",
     "gulp-header": "^2.0.9",
-    "gulp-jsdoc": "^0.1.5",
     "gulp-jsdoc3": "^3.0.0",
     "gulp-jshint": "^2.1.0",
     "gulp-rename": "^2.0.0",

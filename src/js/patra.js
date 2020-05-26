@@ -1,8 +1,22 @@
+/**
+ *
+ * @file Patra is used for viewing Drop Wizard metrics in an user friendly way.
+ *
+ * @name patra
+ * @namespace patra
+ *
+ * @author Indra Basak
+ * @since November 2016
+ * @license Apache-2.0
+ */
 (function (patra, $) {
     'use strict';
 
     /**
      * Initializes Patra with the URL to fetch metrics
+     * @function
+     * @name patra#init
+     *
      * @param url URL to fetch metrics
      */
     patra.init = function (url) {
@@ -15,6 +29,9 @@
 
     /**
      * Called by the viewer to display a graph
+     * @function
+     * @name patra#addGraph
+     *
      * @param divId {string} div id where the graph will be displayed in the viewer
      */
     patra.addGraph = function (divId) {
